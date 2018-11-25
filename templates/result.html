@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+                <title>Online Course Finder</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+                <!-- <link rel="stylesheet" href="/static/me.css"> -->
+
+                <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+                <!--===============================================================================================-->
+                  <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+                <!--===============================================================================================-->
+                  <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+                <!--===============================================================================================-->
+                  <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+                <!--===============================================================================================-->
+                  <link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+                <!--===============================================================================================-->
+                  <link rel="stylesheet" type="text/css" href="/static/util.css">
+                  <link rel="stylesheet" type="text/css" href="/static/main.css">
+                                     
+</head>
+
+   <body>
+<div class="limiter">
+  <div class ="container-table100">
+    <div class="wrap-table100">
+      <div class="table100 ver1 m-b-110">
+        <table data-vertable="ver1">
+          <thead>
+              <tr class="row100 head">
+                  <th class="column100 column1" data-column="column1">URL</th>
+                  <th class="column100 column2" data-column="column1">Course Name</th>
+                  <th class="column100 column3" data-column="column1">Course Provider/ Author</th>
+                  <th class="column100 column4" data-column="column1">Rating (5.0)</th>
+                  <th class="column100 column5" data-column="column1">People Reviewed</th>
+                  <th class="column100 column6" data-column="column1">Pre-Requisites</th>
+                  <th class="column100 column7" data-column="column1">Course Content</th>                                  
+                </tr>
+
+          </thead>
+          <tbody>
+              {% for key in result %}
+              <tr class="row100">
+               <td class=" column100 column1"><a href=" {{key}}" style="color: rgb(0,0,0)">{{key}}</a></th>
+               {% for item in result[key]%}
+         
+               {% if item is iterable and item is not string %}
+               <td class=" column100 column1">
+                  <!-- style="list-style-type:none" -->
+               <ul>
+               {% for val in item  %}
+               <li>{{val}} </li>
+               {% endfor %}
+               </ul>
+             </td>
+               {% else %}
+               <td class=" column100 column2">{{item}}</td>
+             {% endif %}
+               {% endfor %}
+              </tr>
+              {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--===============================================================================================-->	
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+    <script src="/static/vendor/bootstrap/js/popper.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+    <script src="/static/vendor/select2/select2.min.js"></script>
+ 
+
+
+   </body>
+</html>
